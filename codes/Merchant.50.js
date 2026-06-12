@@ -1,7 +1,5 @@
 load_code("Merchant_Skill")
-load_code("Location")
-load_code("Inventory")
-load_code("Party")
+load_code("Master")
 
 function st() {
 	if(top.$('iframe').length == 4) return;
@@ -242,8 +240,16 @@ function open_merchant_supply_stand() {
 function list_merchant_potions() {
 	if(!last_use(last_merchant_supply_refresh, 5000)) return;
 
-	list_merchant_potion("hpot0", merchant_supply_slots["hpot0"], merchant_hp_pot_price)
-	list_merchant_potion("mpot0", merchant_supply_slots["mpot0"], merchant_mp_pot_price)
+	if(character.slots['trade1'] || character.slots['trade1'].name !== "hpot0" || character.slots['trade1'].q < 100){
+		unequip('trade1');
+		list_merchant_potion("hpot0", merchant_supply_slots["hpot0"], merchant_hp_pot_price)
+	}
+
+	if(character.slots['trade2'] || character.slots['trade2'].name !== "mpot0" || character.slots['trade2'].q < 100){
+		unequip('trade2');
+		list_merchant_potion("mpot0", merchant_supply_slots["mpot0"], merchant_hp_pot_price)
+	}
+
 	last_merchant_supply_refresh = new Date();
 }
 

@@ -9,7 +9,7 @@ The standing root-level exceptions are:
 - `AGENTS.md`, which may be read or updated to maintain these instructions.
 - `TODO.md`, which may be read, created, or updated as a shared task checklist.
 
-`base/runner_functions.js` is a read-only reference file.
+`codes/base/runner_functions.js` is a read-only reference file.
 
 Do not edit, reformat, move, rename, overwrite, or delete this file under any circumstances.
 

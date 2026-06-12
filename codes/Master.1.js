@@ -52,3 +52,9 @@ var start_farming = () =>
 
 	fight(character_info.last_farm)
 }
+
+var set_global_command = (command) => {
+	command_character(w, command)
+	command_character(r, command)
+	command_character(p, command)
+}
